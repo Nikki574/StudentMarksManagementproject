@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Results</title>
+    <style>
+        body {
+            background-image: url('green.jpeg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #d9e5e8;
+            border-radius: 10px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Optional: Add slight transparency to the form background */
+        }
+        select, input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        /* Darken the lines of the register number box */
+        input[type="text"], select {
+            border: 2px solid #333; /* Dark border color for both */
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .button-container {
+            margin-top: 20px; /* Space above the button */
+        }
+        .back-button {
+            display: inline-block; /* Display as a block for proper spacing */
+            padding: 10px 20px;
+            background-color: #f44336; /* Red color for the back button */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        .back-button:hover {
+            background-color: #e53935; /* Darker red on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Get Student Results</h2>
+
+    <form action="cse_get_results.php" method="POST">
+        <label for="register_number">Register Number:</label>
+        <input type="text" id="register_number" name="register_number" placeholder="Enter Register Number" required>
+
+        <label for="semester">Select Semester:</label>
+        <select id="semester" name="semester" required>
+            <option value="cse_1_1">1-1 Semester</option>
+            <option value="cse_1_2">1-2 Semester</option>
+            <option value="cse_2_1">2-1 Semester</option>
+            <option value="cse_2_2">2-2 Semester</option>
+            <option value="cse_3_1">3-1 Semester</option>
+            <option value="cse_3_2">3-2 Semester</option>
+        </select>
+
+        <input type="submit" value="Get Results">
+        
+        <!-- BACK button -->
+        <div class="button-container">
+            <a href="cse.html" class="back-button">BACK</a>
+        </div>
+    </form>
+
+</body>
+</html>

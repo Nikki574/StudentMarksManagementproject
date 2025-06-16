@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks, Subject analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-image: url('theme.jpg');
+            background-size: 150%;
+
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        select, input[type="text"], input[type="submit"], input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"], input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover, input[type="button"]:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        function updateSubjects(semester) {
+            const subjects = {
+                "cse_1_1": [
+                    "Communicative_English",
+                    "Mathematics_1",
+                    "Applied_Physics",
+                    "Programming_C",
+                    "Computer_Engg_Workshop",
+                    "English_Comm_Lab",
+                    "Applied_Physics_Lab",
+                    "Programming_C_Lab"
+                ],
+                "cse_1_2": [
+                    "Mathematics_2",
+                    "Applied_Chemistry",
+                    "Computer_Organization",
+                    "Python_Programming",
+                    "Data_Structures",
+                    "Applied_Chemistry_Lab",
+                    "Python_Programming_Lab",
+                    "Data_Structures_Lab",
+                    "Environment_Science"
+                ],
+                "cse_2_1": [
+                    "Mathematics_3",
+                    "Object_Oriented_Programming_through_C++",
+                    "Operating_System",
+                    "Software_Engineering",
+                    "Mathematical_Foundations_of_Computer_Science", 
+                    "Object_Oriented_Programming_through_C++_Lab",
+                    "Operating_System_Lab",
+                    "Software_Engineering_Lab",
+                    "Skill_Oriented_Course_I",
+                    "Constitution_of_India"
+                ],
+                "cse_2_2": [
+                    "Probability_and_Statistics",
+                    "Database_Management_Systems",
+                    "Formal_Languages_and_Automata_Theory",
+                    "Java_Programming",
+                    "Managerial_Economics_and_Financial_Accountancy", 
+                    "Database_Management_Systems_Lab",
+                    "R_Programming_Lab",
+                    "Java_Programming_Lab",
+                    "Skill_Orinted_Course_II"
+                ],
+                "cse_3_1": [
+                    "Data_Warehousing_and_Data_Mining",
+                    "Open_Elective_I",
+                    "Professional_Elective_I", 
+                    "Data_Warehousing_and_Data_Mining_Lab",
+                    "Computer_Networks_Lab",
+                    "Skill_Oriented_Course_III",
+                    "Employability_Skills_I",
+                    "Summer_Internship"
+                ],
+                "cse_3_2": [
+                    "Machine_Learning",
+                    "Compiler_Design",
+                    "Cryptography_and_Network_Security",
+                    "Open_Elective_II",
+                    "Professional_Elective_II",
+                    "Machine_Learning_using_Python_Lab",
+                    "Compiler_Design_Lab",
+                    "Cryptography_and_Network_Security_Lab",
+                    "Skill_Oriented_Course_IV",
+                    "Employability_Skills_II"
+                ]
+            };
+            
+            const subjectSelect = document.getElementById('subject');
+            subjectSelect.innerHTML = ''; 
+
+            if (subjects[semester]) {
+                subjects[semester].forEach(subject => {
+                    const option = document.createElement('option');
+                    option.value = subject;
+                    option.textContent = subject.replace(/_/g, ' ');
+                    subjectSelect.appendChild(option);
+                });
+            }
+        }
+
+        function validateForm() {
+            return true;
+        }
+
+        function goToHome() {
+            window.location.href = 'cse.html'; 
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Update Student Marks, SGPA & Percentage</h2>
+
+    <div id="error-message" class="error"></div>
+
+    <form action="cse_subject_analysis.php" method="POST" onsubmit="return validateForm()">
+        <label for="semester">Select Semester:</label>
+        <select id="semester" name="semester" onchange="updateSubjects(this.value)" required>
+            <option value="cse_1_1">1-1 Semester</option>
+            <option value="cse_1_2">1-2 Semester</option>
+            <option value="cse_2_1">2-1 Semester</option>
+            <option value="cse_2_2">2-2 Semester</option>
+            <option value="cse_3_1">3-1 Semester</option>
+            <option value="cse_3_2">3-2 Semester</option>
+        </select>
+
+        <label for="subject">Select Subject:</label>
+        <select id="subject" name="subject" required></select>
+
+        <input type="submit" value="Submit">
+        <input type="button" value="Home" onclick="goToHome()">
+    </form>
+
+    <script>
+       updateSubjects('cse_1_1');
+    </script>
+
+</body>
+</html>

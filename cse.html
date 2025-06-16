@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
+    <title>CSE Department</title>
+    <style>
+        /* Adding simple styling for the back button */
+        .back-button {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="logo.png" alt="Logo" class="logo"> <!-- Logo on the left -->
+            <h1>Welcome to CSE Department</h1> <!-- Heading in the center -->
+        </header>
+        <div class="content">
+            <div class="button-container">
+                <div class="button" onclick="location.href='students_details.php'">Students Details</div>
+                <div class="button" onclick="location.href='cse_get_results.html'">Get Results</div>
+                <div class="button" onclick="location.href='cse_update_marks.html'">Update Results</div>
+                <div class="button" onclick="location.href='cse_subject_analysis.html'">Subject Analysis</div>
+                <div class="button" onclick="location.href='final.php'">Final Analysis</div>
+            </div>
+
+            <!-- Adding the Back button -->
+            <div class="button-container">
+                <a href="..\home.html" class="back-button">HOME</a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script> <!-- Link to external JavaScript -->
+</body>
+</html>
